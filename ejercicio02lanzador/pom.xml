@@ -6,10 +6,24 @@
 	<artifactId>ejercicio02lanzador</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ejercicio02lanzador</name>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>ejercicio01ooProfesor</groupId>
 			<artifactId>ejercicio01ooProfesor</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.curso.java.interfazdao</groupId>
+			<artifactId>ejercicio02interfazdao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.curso.java.lineanegocio</groupId>
+			<artifactId>ejercicio02lineadenegocio</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

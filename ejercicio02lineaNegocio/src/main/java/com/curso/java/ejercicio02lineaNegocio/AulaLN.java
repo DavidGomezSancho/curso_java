@@ -31,15 +31,10 @@ public class AulaLN {
 	}
 	
 	public Map<String, List<Alumno>> getAlumnosPorAulas(){
-		List<Aula> aulas = aulaDAO.getAulasList();
+		Collection<Aula> aulas = aulaDAO.getAulas();
 		Map<String, List<Alumno>> alumnosPorAulas = new HashMap<String, List<Alumno>>();
-		Persona personaPuestoProfesor = null;
 		for (Aula currentAula : aulas) {
 			List<Alumno> alumnos = new ArrayList<Alumno>();
-			personaPuestoProfesor = currentAula.getPuestoDelProfesor().getPersona();
-			if(personaPuestoProfesor instanceof Alumno) {
-				alumnos.add((Alumno)personaPuestoProfesor);
-			}
 			for(PuestoDeTrabajo currentPuesto : currentAula.getPuestoDeAlumnos()) {
 				Persona currentPersona = currentPuesto.getPersona();
 				if (currentPersona instanceof Alumno) {
@@ -51,16 +46,11 @@ public class AulaLN {
 		return alumnosPorAulas;
 	}
 	
-	public Map<String, Collection<Profesor>> getProfesoresPorAulas(){
-		List<Aula> aulas = aulaDAO.getAulasList();
-		Map<String, Collection<Profesor>> profesoresPorAulas = new HashMap<String, Collection<Profesor>>();
-		Persona personaPuestoProfesor = null;
+	public Map<String, List<Profesor>> getProfesoresPorAulas(){
+		Collection<Aula> aulas = aulaDAO.getAulas();
+		Map<String, List<Profesor>> profesoresPorAulas = new HashMap<String, List<Profesor>>();
 		for (Aula currentAula : aulas) {
 			List<Profesor> profesores = new ArrayList<Profesor>();
-			personaPuestoProfesor = currentAula.getPuestoDelProfesor().getPersona();
-			if(personaPuestoProfesor instanceof Profesor) {
-				profesores.add((Profesor)personaPuestoProfesor);
-			}
 			for(PuestoDeTrabajo currentPuesto : currentAula.getPuestoDeAlumnos()) {
 				Persona currentPersona = currentPuesto.getPersona();
 				if (currentPersona instanceof Profesor) {
@@ -73,11 +63,17 @@ public class AulaLN {
 	}
 	
 	public void putAlumnoAula(Alumno alumno, String nombreAula) {
-		Map<String, Aula> aulasMap= aulaDAO.getAulasMap();
-		Aula aula = aulasMap.get(nombreAula);
+		Collection<Aula> aulas= aulaDAO.getAulas();
+		Aula aula = null;
+		for(Aula currentAula : aulas) {
+			if(currentAula.getNombre().equals(nombreAula)) {
+				aula = currentAula;
+				break;
+			}
+		}
 		Set<PuestoDeTrabajo> puestosDeAlumnos = aula.getPuestoDeAlumnos();
 		for(PuestoDeTrabajo puestoDeAlumno : puestosDeAlumnos) {
-			if (puestoDeAlumno.getPersona() != null) {
+			if (puestoDeAlumno.getPersona() == null) {
 				puestoDeAlumno.setPersona(alumno);
 				aulaDAO.updateAula(aula);
 				break;
