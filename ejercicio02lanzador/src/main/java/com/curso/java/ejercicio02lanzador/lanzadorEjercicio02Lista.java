@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.curso.java.ejercicio02DAO.AulaDAOList;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.curso.java.ejercicio02lineaNegocio.AulaLN;
 import com.curso.java.oo.model.Alumno;
 import com.curso.java.oo.model.Profesor;
@@ -13,11 +15,19 @@ import com.curso.java.oo.model.PuestoDeTrabajo;
 
 public class lanzadorEjercicio02Lista {
 	
+	public static ApplicationContext applicationContext;
 	
+	static {
+		applicationContext = new ClassPathXmlApplicationContext("beanInstanciaDAO.xml");
+	}
 	
 	public static void main(String[] args) {
-		AulaDAOList iLista = new AulaDAOList();
-		AulaLN lineaNegocio = new AulaLN(iLista);
+//		ApplicationContext applicationContext = 
+//				new ClassPathXmlApplicationContext("beanInstanciaDAO.xml");
+		
+		//IAulaDAO estaEsMiImplementacionDeLaInterfazAulaDao =  applicationContext.getBean("aulaDAO", IAulaDAO.class);
+		//AulaDAOList estaEsMiImplementacionDeLaInterfazAulaDaoList = new AulaDAOList();
+		AulaLN lineaNegocio = applicationContext.getBean("aulaLNBean", AulaLN.class);
 		
 		Set<PuestoDeTrabajo> puestosDeAlumnos1 = new HashSet<PuestoDeTrabajo>();
 		puestosDeAlumnos1.add(new PuestoDeTrabajo(true));

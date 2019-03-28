@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class LanazadorEjercicio02 {
+public class LanazadorEjercicio02EjemploProfesor {
 
 	public static void main(String[] args) {
 		ArrayList<String> lista = new ArrayList<String>();

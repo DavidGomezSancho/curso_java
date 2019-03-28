@@ -8,8 +8,8 @@ import com.curso.java.oo.model.Aula;
 
 public class AulaDAOMap implements IAulaDAO{
 
-	Map<String, Aula> aulas = new HashMap<String, Aula>();
-	
+	private Map<String, Aula> aulas;
+	// = new HashMap<String, Aula>()
 	public void createAula(Aula aula) {
 		aulas.put(aula.getNombre(), aula);
 		System.out.println("Aula creada: "+aula);
@@ -28,6 +28,10 @@ public class AulaDAOMap implements IAulaDAO{
 	public void deleteAula(String nombreAula) {
 		aulas.remove(nombreAula);
 		System.out.println("Aula eliminada: "+nombreAula);
+	}
+
+	public void setAulas(Map<String, Aula> aulas) {
+		this.aulas = aulas;
 	}
 
 }

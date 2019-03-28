@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="aulaLNBean" 
+		class="com.curso.java.ejercicio02lineaNegocio.AulaLN" 
+		scope="singleton">
+		<constructor-arg ref="aulaDAOMap"/>
+	</bean>
+	
+	<bean id="aulaDAOList" class="com.curso.java.ejercicio02DAO.AulaDAOList" scope="singleton">
+		<property name="aulas" ref="listaArray"></property>
+	</bean>
+	<bean id="aulaDAOMap" class="com.curso.java.ejercicio02DAO.AulaDAOMap" scope="singleton">
+		<property name="aulas" ref="mapHash"></property>
+	</bean>
+	
+	
+	<bean id="listaArray" class="java.util.ArrayList" scope="singleton"/>
+	
+	<bean id="mapHash" class="java.util.HashMap" scope="singleton"/>
+	
+<!-- 	<bean id="aulaDAO" class="com.curso.java.ejercicio02DAO.AulaDAOList" scope="singleton"> -->
+		
+<!-- 	</bean> -->
+	
+
+</beans>

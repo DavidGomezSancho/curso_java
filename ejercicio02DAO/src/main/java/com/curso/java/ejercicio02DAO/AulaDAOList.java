@@ -7,8 +7,10 @@ import java.util.List;
 import com.curso.java.oo.model.Aula;
 
 public class AulaDAOList implements IAulaDAO{
-	List<Aula> aulas = new ArrayList<Aula>();
 	
+	
+	private List<Aula> aulas ;
+	//= new ArrayList<Aula>()
 	
 	public void createAula(Aula aula) {
 		aulas.add(aula);
@@ -41,5 +43,11 @@ public class AulaDAOList implements IAulaDAO{
 		}
 		
 	}
+
+	public void setAulas(List<Aula> aulas) {
+		this.aulas = aulas;
+	}
+	
+	
 
 }

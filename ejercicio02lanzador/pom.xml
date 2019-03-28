@@ -4,11 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.java.lanzador</groupId>
 	<artifactId>ejercicio02lanzador</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>ejercicio02lanzador</name>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+		<spring.framework.version>5.1.5.RELEASE</spring.framework.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -19,12 +22,22 @@
 		<dependency>
 			<groupId>com.curso.java.interfazdao</groupId>
 			<artifactId>ejercicio02interfazdao</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.curso.java.lineanegocio</groupId>
 			<artifactId>ejercicio02lineadenegocio</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.framework.version}</version>
 		</dependency>
 	</dependencies>
 </project>
