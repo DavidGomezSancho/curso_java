@@ -27,31 +27,33 @@ public class lanzadorEjercicio02Lista {
 		
 		//IAulaDAO estaEsMiImplementacionDeLaInterfazAulaDao =  applicationContext.getBean("aulaDAO", IAulaDAO.class);
 		//AulaDAOList estaEsMiImplementacionDeLaInterfazAulaDaoList = new AulaDAOList();
-		AulaLN lineaNegocio = applicationContext.getBean("aulaLNBean", AulaLN.class);
 		
-		Set<PuestoDeTrabajo> puestosDeAlumnos1 = new HashSet<PuestoDeTrabajo>();
-		puestosDeAlumnos1.add(new PuestoDeTrabajo(true));
-		puestosDeAlumnos1.add(new PuestoDeTrabajo(true));
-		puestosDeAlumnos1.add(new PuestoDeTrabajo(false));
+		//AulaLN lineaNegocio = applicationContext.getBean("aulaLNBean", AulaLN.class);
+		AulaLN lineaNegocio = applicationContext.getBean("AulaLN",AulaLN.class);
 		
-		Set<PuestoDeTrabajo> puestosDeAlumnos2 = new HashSet<PuestoDeTrabajo>();
-		puestosDeAlumnos2.add(new PuestoDeTrabajo(true));
-		puestosDeAlumnos2.add(new PuestoDeTrabajo(true));
+		
+		Set<PuestoDeTrabajo> puestosDeAlumnos1 = (Set<PuestoDeTrabajo>) applicationContext.getBean("puestosDeTrabajo");
+		puestosDeAlumnos1.add(applicationContext.getBean(PuestoDeTrabajo.class));
+		puestosDeAlumnos1.add(applicationContext.getBean(PuestoDeTrabajo.class));
+		puestosDeAlumnos1.add(applicationContext.getBean(PuestoDeTrabajo.class));
+		
+		Set<PuestoDeTrabajo> puestosDeAlumnos2 = (Set<PuestoDeTrabajo>) applicationContext.getBean("puestosDeTrabajo");
+		puestosDeAlumnos2.add(applicationContext.getBean(PuestoDeTrabajo.class));
+		puestosDeAlumnos2.add(applicationContext.getBean(PuestoDeTrabajo.class));
 		
 		lineaNegocio.nuevoAula("Aula1", true, true, puestosDeAlumnos1);
 		
 		lineaNegocio.nuevoAula("Aula2", false, true, puestosDeAlumnos2);
 		
-		Alumno david = new Alumno();
+		Alumno david = applicationContext.getBean("alumno", Alumno.class);
 		david.setNombre("David");
-		Alumno jorge = new Alumno();
+		Alumno jorge = applicationContext.getBean("alumno", Alumno.class);
 		jorge.setNombre("Jorge");
-		Profesor profesor1 = new Profesor();
-		profesor1.setNombre("Profesor");
+		
 		lineaNegocio.putAlumnoAula(david, "Aula1");
 		lineaNegocio.putAlumnoAula(jorge, "Aula1");
 		
-		Alumno pepe = new Alumno();
+		Alumno pepe = applicationContext.getBean("alumno", Alumno.class);
 		pepe.setNombre("Pepe");
 		lineaNegocio.putAlumnoAula(pepe, "Aula2");
 		

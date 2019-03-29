@@ -1,16 +1,20 @@
 package com.curso.java.ejercicio02DAO;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
 import com.curso.java.oo.model.Aula;
 
+@Repository
 public class AulaDAOList implements IAulaDAO{
 	
-	
+	@Autowired
+	@Qualifier("aulas")
 	private List<Aula> aulas ;
-	//= new ArrayList<Aula>()
 	
 	public void createAula(Aula aula) {
 		aulas.add(aula);

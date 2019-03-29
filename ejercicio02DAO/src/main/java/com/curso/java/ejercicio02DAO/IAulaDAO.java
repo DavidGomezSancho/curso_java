@@ -1,10 +1,7 @@
 package com.curso.java.ejercicio02DAO;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
-import com.curso.java.oo.model.Alumno;
 import com.curso.java.oo.model.Aula;
 
 public interface IAulaDAO {

@@ -1,7 +1,6 @@
 package com.curso.java.ejercicio02DAO;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 import com.curso.java.oo.model.Aula;

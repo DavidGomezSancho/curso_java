@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<bean id="aulaLNBean" 
-		class="com.curso.java.ejercicio02lineaNegocio.AulaLN" 
-		scope="singleton">
-		<constructor-arg ref="aulaDAOMap"/>
-	</bean>
-	
-	<bean id="aulaDAOList" class="com.curso.java.ejercicio02DAO.AulaDAOList" scope="singleton">
-		<property name="aulas" ref="listaArray"></property>
-	</bean>
-	<bean id="aulaDAOMap" class="com.curso.java.ejercicio02DAO.AulaDAOMap" scope="singleton">
-		<property name="aulas" ref="mapHash"></property>
-	</bean>
-	
-	
-	<bean id="listaArray" class="java.util.ArrayList" scope="singleton"/>
-	
-	<bean id="mapHash" class="java.util.HashMap" scope="singleton"/>
-	
-<!-- 	<bean id="aulaDAO" class="com.curso.java.ejercicio02DAO.AulaDAOList" scope="singleton"> -->
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+	<context:component-scan
+		base-package="com.curso.java.ejercicio02lineaNegocio" />
+	<!-- <bean id="aulaLNBean" -->
+	<!-- class="com.curso.java.ejercicio02lineaNegocio.AulaLN" -->
+	<!-- scope="singleton"> -->
+	<!-- <constructor-arg ref="aulaDAOMap"/> -->
+	<!-- </bean> -->
+
+	<context:component-scan
+		base-package="com.curso.java.ejercicio02DAO" />
+
+	<!-- <bean id="aulaDAOList" class="com.curso.java.ejercicio02DAO.AulaDAOList" 
+		scope="singleton"> -->
+	<!-- <property name="aulas" ref="listaArray"></property> -->
+	<!-- </bean> -->
+	<!-- <bean id="aulaDAOMap" class="com.curso.java.ejercicio02DAO.AulaDAOMap" 
+		scope="singleton"> -->
+	<!-- <property name="aulas" ref="mapHash"></property> -->
+	<!-- </bean> -->
+
+
+	<bean id="aulas" class="java.util.ArrayList" scope="singleton" />
+
+	<!-- <bean id="mapHash" class="java.util.HashMap" scope="singleton"/> -->
+
+	<context:component-scan
+		base-package="com.curso.java.oo.model" />
 		
-<!-- 	</bean> -->
-	
+	<bean id="puestosDeTrabajo" class="java.util.HashSet" scope="prototype" />
 
 </beans>

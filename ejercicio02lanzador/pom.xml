@@ -17,17 +17,17 @@
 		<dependency>
 			<groupId>ejercicio01ooProfesor</groupId>
 			<artifactId>ejercicio01ooProfesor</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.curso.java.interfazdao</groupId>
 			<artifactId>ejercicio02interfazdao</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.curso.java.lineanegocio</groupId>
 			<artifactId>ejercicio02lineadenegocio</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>

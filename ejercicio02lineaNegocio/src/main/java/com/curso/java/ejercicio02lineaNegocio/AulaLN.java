@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.curso.java.ejercicio02DAO.IAulaDAO;
 import com.curso.java.oo.model.Alumno;
@@ -15,7 +17,10 @@ import com.curso.java.oo.model.Persona;
 import com.curso.java.oo.model.Profesor;
 import com.curso.java.oo.model.PuestoDeTrabajo;
 
+@Service("AulaLN")
 public class AulaLN {
+	
+	@Autowired
 	private IAulaDAO aulaDAO;
 	
 	public AulaLN (IAulaDAO aulaDAO) {

@@ -33,7 +33,7 @@ public class Ejemplo01HelloWorld {
 		setDePolicias.add((Policia)persona3);
 		setDePolicias.add(new PoliciaPistolero());
 		System.out.println(setDePolicias.size());
-		List<Policia> lista = new ArrayList();
+		List<Policia> lista = new ArrayList<Policia>();
 		lista.add(poliPorrero);
 		lista.add((Policia)persona3);
 		lista.add(new PoliciaPistolero());
