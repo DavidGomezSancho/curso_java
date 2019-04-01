@@ -1,6 +1,5 @@
 package com.curso.java.ejercicio02lanzador;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.curso.java.ejercicio02lineaNegocio.AulaLN;
 import com.curso.java.oo.model.Alumno;
-import com.curso.java.oo.model.Profesor;
 import com.curso.java.oo.model.PuestoDeTrabajo;
 
 public class lanzadorEjercicio02Lista {

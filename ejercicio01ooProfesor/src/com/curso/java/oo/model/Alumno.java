@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 public class Alumno extends Persona {
 	
 	@Value("true")
-	private boolean subvencionado;
+	private Boolean subvencionado;
 
-	public boolean isSubvencionado() {
+	public Boolean isSubvencionado() {
 		return subvencionado;
 	}
 
