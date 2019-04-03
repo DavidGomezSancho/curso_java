@@ -3,6 +3,11 @@ package com.curso.java.oo.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("session")
 public class Aula {
 	private String nombre;
 	private boolean proyector;

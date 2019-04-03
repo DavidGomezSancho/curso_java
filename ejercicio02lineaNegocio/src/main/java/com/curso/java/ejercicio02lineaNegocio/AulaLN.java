@@ -66,28 +66,35 @@ public class AulaLN {
 		return profesoresPorAulas;
 	}
 	
-	public void putAlumnoAula(Alumno alumno, String nombreAula) {
+	public Boolean putAlumnoAula(Alumno alumno, String nombreAula) {
 		Collection<Aula> aulas= aulaDAO.getAulas();
 		Aula aula = null;
+		Boolean exito = new Boolean(false);
 		for(Aula currentAula : aulas) {
 			if(currentAula.getNombre().equals(nombreAula)) {
 				aula = currentAula;
 				break;
 			}
 		}
+		
+		if(aula==null)
+			return exito;
+		
 		Set<PuestoDeTrabajo> puestosDeAlumnos = aula.getPuestoDeAlumnos();
 		for(PuestoDeTrabajo puestoDeAlumno : puestosDeAlumnos) {
 			if (puestoDeAlumno.getPersona() == null) {
 				puestoDeAlumno.setPersona(alumno);
-				aulaDAO.updateAula(aula);
+				if(aulaDAO.updateAula(aula)!=null) {
+					exito = new Boolean(true);
+				}
 				break;
 			}
 		}
-		
+		return exito;
 	}
 	
-	public void eliminarAula(String nombreAula) {
-		aulaDAO.deleteAula(nombreAula);
+	public Boolean eliminarAula(String nombreAula) {
+		return aulaDAO.deleteAula(nombreAula);
 	}
 	
 }
